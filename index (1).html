@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Chamathka Prabhashana — Cybersecurity enthusiast, ethical hacking learner, and software developer." />
+  <title>Chamathka Prabhashana | Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020; --panel: #111a2e; --panel2: #151f36; --text: #edf2ff;
+      --muted: #a4b0ca; --line: rgba(190,205,255,.15); --accent: #7cafff;
+      --accent2: #76f0c4; --shadow: 0 18px 55px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: radial-gradient(ellipse at 80% 0%, #17284a 0%, var(--bg) 43%); color: var(--text); font-family: Manrope, sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .mono { font-family: "DM Mono", monospace; }
+    .topbar { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; }
+    .brand span { color: var(--accent2); }
+    .navlinks { display: flex; gap: 23px; align-items: center; color: var(--muted); font-size: .9rem; }
+    .navlinks a:hover { color: var(--text); }
+    .menu-btn { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); border-radius: 10px; padding: 8px 12px; }
+    .hero { padding: 92px 0 76px; display: grid; grid-template-columns: 1.35fr .85fr; gap: 55px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 10px; align-items: center; color: var(--accent2); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    .dot { width: 8px; height: 8px; background: var(--accent2); border-radius: 50%; box-shadow: 0 0 18px var(--accent2); }
+    h1 { margin: 18px 0; font-size: clamp(2.7rem, 6vw, 5rem); letter-spacing: -.075em; line-height: 1.03; }
+    h1 span { color: var(--accent); }
+    .hero p { max-width: 650px; color: var(--muted); font-size: 1.06rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 12px; padding: 12px 17px; font-weight: 800; font-size: .9rem; border: 1px solid var(--line); transition: transform .2s, border-color .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { color: #081020; background: var(--accent2); border-color: var(--accent2); }
+    .hero-card { padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(145deg, rgba(23,35,61,.95), rgba(14,21,39,.92)); box-shadow: var(--shadow); }
+    .terminal-head { display: flex; gap: 7px; padding-bottom: 17px; border-bottom: 1px solid var(--line); }
+    .terminal-head i { width: 9px; height: 9px; border-radius: 50%; background: #ff7777; }
+    .terminal-head i:nth-child(2) { background: #ffd166; } .terminal-head i:nth-child(3) { background: #76f0c4; }
+    .terminal { font-family: "DM Mono", monospace; font-size: .85rem; }
+    .terminal .line { margin: 13px 0; color: var(--muted); overflow-wrap: anywhere; }
+    .terminal b { color: var(--accent2); font-weight: 500; }
+    .terminal strong { color: var(--accent); font-weight: 500; }
+    .status { margin-top: 22px; padding: 12px 14px; background: rgba(118,240,196,.08); border: 1px solid rgba(118,240,196,.2); border-radius: 12px; color: #b9ffe6; font-size: .83rem; }
+    section { padding: 64px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 27px; }
+    .kicker { color: var(--accent2); font-family: "DM Mono", monospace; font-size: .78rem; }
+    h2 { margin: 6px 0 0; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.055em; line-height: 1.15; }
+    .section-intro { color: var(--muted); max-width: 560px; margin: 0; }
+    .grid { display: grid; gap: 17px; }
+    .three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .card { border: 1px solid var(--line); background: rgba(17,26,46,.82); padding: 23px; border-radius: 18px; transition: transform .2s, border-color .2s; }
+    .card:hover { transform: translateY(-3px); border-color: rgba(124,175,255,.5); }
+    .card-icon { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 12px; color: var(--accent2); font-size: 1.2rem; background: rgba(118,240,196,.06); }
+    .card h3 { margin: 16px 0 8px; font-size: 1.08rem; letter-spacing: -.025em; }
+    .card p { color: var(--muted); font-size: .92rem; margin: 0; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .tag { font-family: "DM Mono", monospace; font-size: .7rem; color: #c9d8f5; padding: 5px 8px; border-radius: 7px; background: rgba(124,175,255,.09); border: 1px solid rgba(124,175,255,.15); }
+    .project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .project-links { display: flex; gap: 12px; margin-top: 18px; font-size: .84rem; font-weight: 800; }
+    .project-links a { color: var(--accent); }
+    .project-links a:hover { color: var(--accent2); }
+    .badge { font-family: "DM Mono", monospace; color: var(--accent2); border: 1px solid rgba(118,240,196,.25); background: rgba(118,240,196,.07); border-radius: 100px; padding: 4px 8px; font-size: .67rem; white-space: nowrap; }
+    .research { display: grid; grid-template-columns: 1fr 2fr; gap: 25px; align-items: start; }
+    .research-mark { border-radius: 18px; min-height: 180px; padding: 23px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(135deg, #173c52, #172444 65%, #222044); border: 1px solid var(--line); }
+    .research-mark strong { font-size: 2.2rem; letter-spacing: -.06em; }
+    .research-mark span { color: var(--accent2); font-family: "DM Mono", monospace; font-size: .75rem; }
+    .research-copy h3 { margin-top: 0; font-size: 1.25rem; }
+    .research-copy p, .research-copy li { color: var(--muted); }
+    .research-copy ul { padding-left: 20px; }
+    .skill-group { margin-bottom: 20px; }
+    .skill-group h3 { margin: 0 0 10px; font-size: .95rem; }
+    .skill-group .tags { margin-top: 0; }
+    .timeline { border-left: 1px solid rgba(124,175,255,.35); margin-left: 8px; padding-left: 25px; }
+    .timeline-item { position: relative; padding: 0 0 24px; }
+    .timeline-item::before { content: ""; position: absolute; left: -31px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 5px rgba(118,240,196,.1); }
+    .timeline-item h3 { margin: 0 0 5px; font-size: 1rem; }
+    .timeline-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .contact-panel { padding: clamp(24px, 5vw, 48px); border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(21,39,68,.9), rgba(17,26,46,.9)); display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact-panel p { max-width: 620px; color: var(--muted); }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .backtop { color: var(--accent2); }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 30px; padding-top: 65px; }
+      .three { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .research { grid-template-columns: 1fr; }
+      .research-mark { min-height: 145px; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .navlinks { display: none; position: absolute; left: 14px; right: 14px; top: 65px; padding: 15px; background: #111a2e; border: 1px solid var(--line); border-radius: 14px; flex-direction: column; align-items: stretch; gap: 12px; }
+      .navlinks.open { display: flex; }
+      .menu-btn { display: block; }
+      .three, .two { grid-template-columns: 1fr; }
+      .hero { padding: 52px 0 40px; }
+      section { padding: 45px 0; }
+      .contact-panel { align-items: start; flex-direction: column; }
+      h1 { font-size: clamp(2.55rem, 13vw, 4rem); }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="container">
+      <a class="brand" href="#home">CP<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks">Menu ☰</button>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Cybersecurity · Software Development</div>
+        <h1>Building safer<br>digital <span>experiences.</span></h1>
+        <p>I'm <strong>Chamathka Prabhashana</strong>, a Computing undergraduate at LNBTI in Sri Lanka, focused on ethical hacking, application security, and practical software development. I enjoy learning how systems fail—and how to make them stronger.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↘</a>
+          <a class="btn" href="https://github.com/Chamathka123456" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/chamathka-prbhashana/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Developer terminal illustration">
+        <div class="terminal-head"><i></i><i></i><i></i></div>
+        <div class="terminal">
+          <div class="line"><b>chamathka@portfolio</b>:~$ whoami</div>
+          <div class="line">Computing undergraduate</div>
+          <div class="line"><b>focus</b> = <strong>application security</strong></div>
+          <div class="line"><b>tools</b> = [Python, Linux, Docker, Git]</div>
+          <div class="line"><b>mission</b> = "Learn. Test. Secure."</div>
+          <div class="line"><b>status</b> = open_to_opportunities</div>
+        </div>
+        <div class="status">● Open to cybersecurity learning, internships, and junior development opportunities.</div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">01 / ABOUT</div><h2>Curious by nature.<br>Security-minded by design.</h2></div>
+          <p class="section-intro">My goal is to grow into an ethical hacker and application security professional while building a strong foundation in software engineering.</p>
+        </div>
+        <div class="grid three">
+          <article class="card"><div class="card-icon">⌘</div><h3>Security-first thinking</h3><p>Learning web security testing, common application weaknesses, secure development practices, and responsible disclosure in authorized environments.</p></article>
+          <article class="card"><div class="card-icon">⌁</div><h3>Build and investigate</h3><p>Creating Python tools and APIs while exploring how authentication, authorization, sessions, and input validation affect application security.</p></article>
+          <article class="card"><div class="card-icon">◎</div><h3>Research and teamwork</h3><p>Contributed to student research on security assessment of CTFd-based Capture The Flag platforms and presented research at JASPER 2026.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">02 / SELECTED WORK</div><h2>Projects with a purpose.</h2></div>
+          <p class="section-intro">A selection of security-focused tools and development projects. Open each repository to review its implementation and current status.</p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <div class="project-top"><div class="card-icon">⌕</div><span class="badge">Security</span></div>
+            <h3>CPWebScanner</h3><p>A web security scanning project designed to help explore common web exposure and testing workflows in authorized environments.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Web Security</span><span class="tag">CLI</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456/CPWebScanner" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="card-icon">⛨</div><span class="badge">AppSec</span></div>
+            <h3>OAuth-Misuse-Inspector</h3><p>A learning and inspection project focused on OAuth implementation risks and safer authentication flows.</p>
+            <div class="tags"><span class="tag">OAuth</span><span class="tag">Python</span><span class="tag">Security</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456/OAuth-Misuse-Inspector" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="card-icon">✉</div><span class="badge">API</span></div>
+            <h3>Email Validator API</h3><p>An API project that checks email address structure and domain mail-exchange information to support validation workflows.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">DNS</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456" target="_blank" rel="noreferrer">Find on GitHub ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="card-icon">▧</div><span class="badge">Privacy</span></div>
+            <h3>Browser Fingerprint Privacy Auditor</h3><p>A privacy-oriented project concept for understanding browser fingerprinting signals and reducing unnecessary exposure.</p>
+            <div class="tags"><span class="tag">Privacy</span><span class="tag">Web</span><span class="tag">Research</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456" target="_blank" rel="noreferrer">Explore repositories ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="card-icon">⌘</div><span class="badge">Learning</span></div>
+            <h3>CyberSec Playbook</h3><p>A practical knowledge base for cybersecurity notes, repeatable lab workflows, and responsible security testing checklists.</p>
+            <div class="tags"><span class="tag">Documentation</span><span class="tag">Linux</span><span class="tag">Security</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456" target="_blank" rel="noreferrer">Explore repositories ↗</a></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><div class="card-icon">⌬</div><span class="badge">More work</span></div>
+            <h3>More on GitHub</h3><p>Explore additional experiments, programming projects, APIs, and ongoing learning repositories.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Git</span><span class="tag">Open Source</span></div>
+            <div class="project-links"><a href="https://github.com/Chamathka123456?tab=repositories" target="_blank" rel="noreferrer">All repositories ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">03 / RESEARCH</div><h2>Research that builds perspective.</h2></div>
+        </div>
+        <div class="research">
+          <div class="research-mark"><span>JASPER · 2026</span><strong>CTFd<br>Security</strong><span>SOFTWARE ENGINEERING & CYBERSECURITY TRACK</span></div>
+          <div class="research-copy">
+            <h3>Security Assessment of Student-Run Capture The Flag Platforms Using CTFd</h3>
+            <p>Research presented at the 2nd JASPER Research Symposium 2026 at LNBTI Japanese IT University, Maharagama. The work examined security risks in a controlled, isolated CTFd test environment.</p>
+            <ul>
+              <li>Reviewed security testing scenarios using OWASP Web Security Testing Guide concepts.</li>
+              <li>Explored access control, session handling, JWT-related risks, path traversal, mass assignment, and injection categories.</li>
+              <li>Identified an example API ownership-check issue involving access to user records.</li>
+            </ul>
+            <div class="tags"><span class="tag">CTFd</span><span class="tag">Docker</span><span class="tag">OWASP WSTG</span><span class="tag">Web Application Security</span></div>
+            <p><small>Only include claims, findings, and author details that match your final research paper and symposium poster.</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="kicker">04 / TOOLKIT</div><h2>Skills I'm developing.</h2></div>
+          <p class="section-intro">A practical foundation across programming, web technologies, and security tooling. This list can be adjusted to reflect your current confidence level.</p>
+        </div>
+        <div class="grid two">
+          <div class="card">
+            <div class="skill-group"><h3>Cybersecurity</h3><div class="tags"><span class="tag">Ethical Hacking</span><span class="tag">OWASP WSTG</span><span class="tag">Web App Testing</span><span class="tag">Authentication</span><span class="tag">Access Control</span></div></div>
+            <div class="skill-group"><h3>Systems & Tools</h3><div class="tags"><span class="tag">Linux / Kali Linux</span><span class="tag">Docker</span><span class="tag">Git & GitHub</span><span class="tag">Nginx</span><span class="tag">Burp Suite (learning)</span></div></div>
+          </div>
+          <div class="card">
+            <div class="skill-group"><h3>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div></div>
+            <div class="skill-group"><h3>Development</h3><div class="tags"><span class="tag">REST APIs</span><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">Debugging</span><span class="tag">Documentation</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="container">
+        <div class="section-head"><div><div class="kicker">05 / JOURNEY</div><h2>Learning with direction.</h2></div></div>
+        <div class="card">
+          <div class="timeline">
+            <div class="timeline-item"><h3>BSc (Hons) Computing — Information Systems</h3><p>Undergraduate studies at LNBTI, building foundations in programming, databases, systems development, and computing.</p></div>
+            <div class="timeline-item"><h3>Cybersecurity research — JASPER 2026</h3><p>Contributed to research assessing the security of student-run CTFd platforms in a controlled test setup.</p></div>
+            <div class="timeline-item"><h3>Continuous hands-on practice</h3><p>Developing security tools, API projects, and lab skills with an emphasis on ethical testing and responsible learning.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><div class="kicker">06 / CONTACT</div><h2>Let's connect and build.</h2><p>I'm interested in cybersecurity learning opportunities, internships, collaborative projects, and junior development roles. Feel free to connect or explore my work.</p></div>
+          <div class="actions">
+            <a class="btn primary" href="https://www.linkedin.com/in/chamathka-prbhashana/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a>
+            <a class="btn" href="https://github.com/Chamathka123456" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="btn" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Chamathka Prabhashana</span><span>Designed with curiosity · Built for the web</span><a class="backtop" href="#home">Back to top ↑</a></div></footer>
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navlinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navlinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
